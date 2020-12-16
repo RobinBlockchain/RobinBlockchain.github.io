@@ -607,8 +607,6 @@ ethereum.autoRefreshOnNetworkChange = false;
         getPlanetDetails(id)
           .then(function (planet) {
           
-            $("#txStatus").append('<div class="test"> Test </div>');
-
              $("#planets").append(`<div class="planet"> 
               <ul>
                 <li>DNA: ${planet.dna}</li>
@@ -626,7 +624,7 @@ ethereum.autoRefreshOnNetworkChange = false;
     function createRandomPlanet() {
 
 
-      $("#txStatus").text("Creating new zombie on the blockchain. This may take a while...");
+      $("#txStatus").text("Creating new planet on the blockchain. This may take a while...");
 
       return cryptoPlanet.methods.createRandomPlanet("Test",1,1,1,userAccount)
         .send({ from: userAccount })
