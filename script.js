@@ -1,5 +1,3 @@
-src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js";
-src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js";
 
 ethereum.autoRefreshOnNetworkChange = false;
       var cryptoPlanet;
