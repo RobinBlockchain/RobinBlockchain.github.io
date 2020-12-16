@@ -1,4 +1,3 @@
-
 ethereum.autoRefreshOnNetworkChange = false;
       var cryptoPlanet;
       var userAccount;
@@ -560,12 +559,25 @@ ethereum.autoRefreshOnNetworkChange = false;
   cryptoPlanet = new web3.eth.Contract(abi,cryptoPlanetAddress);
   cryptoPlanet.defaultChain = "kovan";
 
-    var acc = null;
-        web3.eth.getAccounts((err, res) => {                   
-                   //console.log(res[0]);
-                   acc = res[0];                 
-        });  
+  let acc = null;
+  (async () => {
+  const accounts = await web3.eth.getAccounts();
+  console.log(accounts[0]);
+  acc = accounts[0];
 
+  const balance = await web3.eth.getBalance(accounts[0]);
+  console.log("balance", web3.utils.fromWei(balance, "ether"));
+})();
+
+
+ 
+    
+
+    // var acc = null;
+      //  web3.eth.getAccounts((err, res) => {                   
+                   //console.log(res[0]);
+        //           acc = res[0];                 
+       // });  
 
   var accountInterval = setInterval(function () {
    
@@ -631,21 +643,27 @@ ethereum.autoRefreshOnNetworkChange = false;
 
 
 
-      window.addEventListener('load', function() {
-
-        // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-        if (typeof web3 !== 'undefined') {
-          // Use Mist/MetaMask's provider
-          web3 = new Web3(web3.currentProvider);
-
-
-        } else {
-          // Handle the case where the user doesn't have Metamask installed
-          // Probably show them a message prompting them to install Metamask
-            alert("Please install an Ethereum-compatible browser or extension like MetaMask to use this dApp!");
+    window.addEventListener('load', async () => {
+    // Modern dapp browsers...
+    if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+            // Request account access if needed
+            await ethereum.enable();
+            // Acccounts now exposed
+            web3.eth.sendTransaction({/* ... */});
+        } catch (error) {
+            // User denied account access...
         }
-
+    }
+    // Non-dapp browsers...
+    else {
+        console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+    }
         // Now you can start your app & access web3 freely:
         startApp()
+
+     
+        
 
       })
