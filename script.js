@@ -601,11 +601,15 @@ ethereum.autoRefreshOnNetworkChange = false;
 
 
   function displayPlanets(ids) {
+      $("#listplanets").append(ids); 
       $("#planets").empty();
       for (id of ids) {
+        
+
 
         getPlanetDetails(id)
           .then(function (planet) {
+            
           
              $("#planets").append(`<div class="planet"> 
               <ul>
@@ -637,6 +641,27 @@ ethereum.autoRefreshOnNetworkChange = false;
 
           $("#txStatus").text(error);
         });
+    }
+
+
+    function TransferPlanet() {
+
+      var addressto = document.getElementById("addressto").value;
+   	  var planetId = document.getElementById("planetId").value;
+
+      return cryptoPlanet.methods.transfer(addressto,planetId)
+        .send({ from: userAccount })
+        .on("receipt", function (receipt) {
+          $("#txStatus").text("Successfully transferred " + "!");
+
+          getPlanetsByOwner(userAccount).then(displayPlanets);
+        })
+        .on("error", function (error) {
+
+          $("#txStatus").text(error);
+        });
+       
+
     }
 
 
