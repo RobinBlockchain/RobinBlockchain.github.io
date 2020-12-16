@@ -3,21 +3,39 @@
   <head>
     <meta charset="UTF-8">
     <title>CryptoPlanet front-end</title>
-    
-	<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
 
     
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-	  
-	  
-	  
   </head>
   <body>
+
+    <h2>List of your planet :</h2>
+    
+    List Planet Id : <div id="listplanets"></div>
     <div id="txStatus"></div>
     <div id="planets"></div>
 
+    <h2>Create a new planet : </h2>
+
+
     <div id="createplanetbutton"><button type="button" onclick="createRandomPlanet()">Create New Planet!</button></div>
+
+    <h2>Send planet to someone</h2>
+
+  Address TO : <input type="text" placeholder="Type something..." id="addressto">
+  Planet ID :  <input type="text" placeholder="Type something..." id="planetId">
+
+
+<button type="button" onclick="TransferPlanet()">Transfer</button>
+
+
+
+
+ <script>
+   
+    </script>
 
   </body>
 </html>
