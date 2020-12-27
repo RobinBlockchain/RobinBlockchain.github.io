@@ -29,7 +29,7 @@
     <label class='menu-button-container' for="menu-toggle">
     <div class='menu-button' onclick="myMenu()"></div>
   </label>
-    <ul class="menu" id="mobile-menu">
+    <ul class="menu" id="mobile-nav">
       <li><a href="#">One</a></li>
       <li>Two</li>
       <li>Three</li>
@@ -39,7 +39,7 @@
   </section>
 <script>
 	function myMenu(){
-	var x = document.getElementById("mobile-menu").style.zIndex;
+	var x = document.getElementById("mobile-nav").style.zIndex;
 	console.log(x);
 	console.log('test');
 	if (x < 0 ) {
