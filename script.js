@@ -610,7 +610,7 @@ ethereum.autoRefreshOnNetworkChange = false;
         getPlanetDetails(id)
           .then(function (planet) {
             
-              $("#planets").append(`<div class="first hero">
+              $("#planets").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${parseInt(ids[d])}/image" alt="">
                 <div class="hero-description-bk"></div>
                 <div class="hero-logo">
