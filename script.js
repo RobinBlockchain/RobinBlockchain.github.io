@@ -606,12 +606,37 @@ ethereum.autoRefreshOnNetworkChange = false;
       for (id of ids) {
         
 
-
+        d=0;
         getPlanetDetails(id)
           .then(function (planet) {
             
-          
-             $("#planets").append(`<div class="planet"> 
+              $("#planets").append(`<div class="first hero">
+                <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${parseInt(ids[d])}/image" alt="">
+                <div class="hero-description-bk"></div>
+                <div class="hero-logo">
+                <img src="https://e00-elmundo.uecdn.es/television/programacion-tv/img/programas/1f/1355295.png" alt="">
+                </div>
+                <div class="hero-description-1">
+                <p>Iziborn</p>
+                </div>
+                <div class="hero-description-2">
+                <p>Total hour focused :</p>
+                </div>
+                <div class="hero-description-3">
+                  <p>Created : ${planet.creationTime}</p>
+                </div>
+                <div class="hero-btn-1">
+                  <a href="#">Focus Boost</a>
+                </div>
+                <div class="hero-btn">
+                  <a href="#">Learn More</a>
+                </div>
+                </div>`);
+
+
+
+
+             /*$("#planets").append(`<div class="planet"> 
               <ul>
                 <li>DNA: ${planet.dna}</li>
                 <li>Creation Time: ${planet.creationTime}</li>
@@ -619,8 +644,11 @@ ethereum.autoRefreshOnNetworkChange = false;
                 <li>Planet 1 : ${planet.planet1Id}</li>
                 <li>Planet 2: ${planet.planet2Id}</li>
                 <li>Univers: ${planet.univers}</li>
+                <img src="https://cryptoplanet.pythonanywhere.com/planets/${parseInt(ids[d])}/image" style="max-width: 250px;"/>
+
               </ul>
-            </div>`);
+            </div>`);*/
+            d+=1;
           });
       } 
     }
