@@ -585,7 +585,8 @@ ethereum.autoRefreshOnNetworkChange = false;
           userAccount = acc;
                       
           getPlanetsByOwner(userAccount)
-            .then(displayPlanets);
+            .then(displayPlanets)
+	    .then(displayNewPlanet);
         }
   }, 100);
 
@@ -649,9 +650,14 @@ ethereum.autoRefreshOnNetworkChange = false;
               </ul>
             </div>`);*/
             d+=1;
-          });
-	 .then(function(planet2){
-		 $("#planets").append(`<div class="first nonhero">
+          });	 
+      }
+	 
+    }
+
+function displayNewPlanet() {
+	
+ $("#planets").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="/src/images/newPlanet.png" alt="">
                 <div class="hero-description-bk"></div>
 		<div class="top-section">
@@ -673,12 +679,7 @@ ethereum.autoRefreshOnNetworkChange = false;
                 </div>
 		</div>
                 </div>`);  
-		 
-	 });
-      }
-	 
-    }
-
+}
     function createRandomPlanet() {
 
 
