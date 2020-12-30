@@ -650,8 +650,8 @@ ethereum.autoRefreshOnNetworkChange = false;
             </div>`);*/
             d+=1;
           });
-      }
-	 $("#planets").append(`<div class="first nonhero">
+	 .then(function(planet2){
+		 $("#planets").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="/src/images/newPlanet.png" alt="">
                 <div class="hero-description-bk"></div>
 		<div class="top-section">
@@ -673,6 +673,10 @@ ethereum.autoRefreshOnNetworkChange = false;
                 </div>
 		</div>
                 </div>`);  
+		 
+	 });
+      }
+	 
     }
 
     function createRandomPlanet() {
