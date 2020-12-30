@@ -785,6 +785,7 @@ function showDropdown(event){
                   <a href="#">Learn More</a>
                 </div>
                 </div>`);
+					 });
 
 
       
@@ -818,9 +819,10 @@ function showDropdown(event){
                 </div>
                 </div>`);
 
+      });
 
-      
-    }
+
+     
     }
 
     for (var i=0;i<event.target.parentNode.children.length;i++){
