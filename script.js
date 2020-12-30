@@ -650,7 +650,29 @@ ethereum.autoRefreshOnNetworkChange = false;
             </div>`);*/
             d+=1;
           });
-      } 
+      }
+	 $("#planets").append(`<div class="first nonhero">
+                <img class="hero-profile-img" src="/src/images/newPlanet.png" alt="">
+                <div class="hero-description-bk"></div>
+		<div class="top-section">
+                <div class="hero-logo">
+                <img src="https://e00-elmundo.uecdn.es/television/programacion-tv/img/programas/1f/1355295.png" alt="">
+                </div>
+                <div class="hero-description-1">
+                <p>New Planet</p>
+                </div>
+		<div id="createplanetbutton">
+    			<button type="button" onclick="createRandomPlanet()">Buy planets</button>
+		</div>
+                
+                <div class="hero-btn-1">
+                  <a href="#">Create</a>
+                </div>
+                <div class="hero-btn">
+                  <a href="#">Fusion</a>
+                </div>
+		</div>
+                </div>`);  
     }
 
     function createRandomPlanet() {
