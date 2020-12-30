@@ -759,6 +759,7 @@ function showDropdown(event){
     activeDropdown.button.innerHTML = event.target.innerHTML;
     if (activeDropdown.id == "planet1-dropdown"){
       planet1Fusion = event.target.innerHTML;
+      $("#planet1display").empty();
 
       getPlanetDetails(planet1Fusion)
           .then(function (planet) {
@@ -792,11 +793,13 @@ function showDropdown(event){
     }
     if (activeDropdown.id =="planet2-dropdown"){
       planet2Fusion = event.target.innerHTML;
+ 	$("#planet2display").empty();
+
       
       getPlanetDetails(planet2Fusion)
           .then(function (planet) {
 
-             $("#planet1display").append(`<div class="first nonhero">
+             $("#planet2display").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${planet2Fusion}/image" alt="">
                 <div class="hero-description-bk"></div>
                 <div class="hero-logo">
