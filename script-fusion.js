@@ -759,7 +759,19 @@ function showDropdown(event){
     activeDropdown.button.innerHTML = event.target.innerHTML;
     if (activeDropdown.id == "planet1-dropdown"){
       planet1Fusion = event.target.innerHTML;
-      $("#planet1display").empty();
+      
+    }
+    if (activeDropdown.id =="planet2-dropdown"){
+      planet2Fusion = event.target.innerHTML;
+
+      
+     
+
+     
+    }
+	if (planet1Fusion != "null" && planet2Fusion != "null") {
+		
+		$("#planet1display").empty();
 
       getPlanetDetails(planet1Fusion)
           .then(function (planet) {
@@ -787,16 +799,8 @@ function showDropdown(event){
                 </div>
                 </div>`);
 					 });
-
-
-      
-    }
-    if (activeDropdown.id =="planet2-dropdown"){
-      planet2Fusion = event.target.innerHTML;
- 	$("#planet2display").empty();
-
-      
-      getPlanetDetails(planet2Fusion)
+		
+	getPlanetDetails(planet2Fusion)
           .then(function (planet) {
 
              $("#planet2display").append(`<div class="first nonhero">
@@ -824,9 +828,8 @@ function showDropdown(event){
 
       });
 
-
-     
-    }
+	 
+	}
 
     for (var i=0;i<event.target.parentNode.children.length;i++){
       if (event.target.parentNode.children[i].classList.contains('check')) {
