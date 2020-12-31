@@ -803,7 +803,7 @@ function showDropdown(event){
 	getPlanetDetails(planet2Fusion)
           .then(function (planet) {
 
-             $("#planet2display").append(`<div class="first nonhero">
+             $("#planet1display").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${planet2Fusion}/image" alt="">
                 <div class="hero-description-bk"></div>
                 <div class="hero-logo">
