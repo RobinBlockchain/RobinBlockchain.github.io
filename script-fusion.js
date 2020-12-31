@@ -779,6 +779,7 @@ function showDropdown(event){
              $("#planet1display").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${planet1Fusion}/image" alt="">
                 <div class="hero-description-bk"></div>
+		<div class="top-section">
                 <div class="hero-logo">
                 <img src="https://e00-elmundo.uecdn.es/television/programacion-tv/img/programas/1f/1355295.png" alt="">
                 </div>
@@ -786,17 +787,16 @@ function showDropdown(event){
                 <p>Iziborn</p>
                 </div>
                 <div class="hero-description-2">
-                <p>Total hour focused :</p>
-                </div>
-                <div class="hero-description-3">
-                  <p>Created : ${planet.creationTime}</p>
-                </div>
+                <p>Time focused :</p>
+		<p>Created : ${planet.creationTime}</p>
+                </div>  
                 <div class="hero-btn-1">
                   <a href="#">Focus Boost</a>
                 </div>
                 <div class="hero-btn">
-                  <a href="#">Learn More</a>
+                  <a href="#">Details</a>
                 </div>
+		</div>
                 </div>`);
 					 });
 		
@@ -806,6 +806,7 @@ function showDropdown(event){
              $("#planet1display").append(`<div class="first nonhero">
                 <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${planet2Fusion}/image" alt="">
                 <div class="hero-description-bk"></div>
+		<div class="top-section">
                 <div class="hero-logo">
                 <img src="https://e00-elmundo.uecdn.es/television/programacion-tv/img/programas/1f/1355295.png" alt="">
                 </div>
@@ -813,17 +814,16 @@ function showDropdown(event){
                 <p>Iziborn</p>
                 </div>
                 <div class="hero-description-2">
-                <p>Total hour focused :</p>
-                </div>
-                <div class="hero-description-3">
-                  <p>Created : ${planet.creationTime}</p>
-                </div>
+                <p>Time focused :</p>
+		<p>Created : ${planet.creationTime}</p>
+                </div>  
                 <div class="hero-btn-1">
                   <a href="#">Focus Boost</a>
                 </div>
                 <div class="hero-btn">
-                  <a href="#">Learn More</a>
+                  <a href="#">Details</a>
                 </div>
+		</div>
                 </div>`);
 
       });
