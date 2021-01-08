@@ -695,7 +695,10 @@ function displayNewPlanet() {
         .on("receipt", function (receipt) {
           $("#txStatus").text("Successfully created " + "!");
 
+
           getPlanetsByOwner(userAccount).then(displayPlanets);
+	  console.log(getPlanetsByOwner(userAccount));
+	  console.log(getPlanetsByOwner(userAccount)[1]);
         })
         .on("error", function (error) {
 
