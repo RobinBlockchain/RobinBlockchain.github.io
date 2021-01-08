@@ -668,14 +668,19 @@ function displayNewPlanet() {
                 <p>New Planet</p>
                 </div>
 		<div id="createplanetbutton">
-    			<button type="button" onclick="createRandomPlanet()">Buy planets</button>
+    			<button type="button" onclick="createRandomPlanet()" style="position: absolute;
+    left: 26%;
+    bottom: 45%;
+    padding: 1% 2%;
+    border: 1px solid #fff;
+    border-radius: 10px;">Buy planets</button>
 		</div>
                 
-                <div class="hero-btn-1">
-                  <a href="#">Create</a>
+                <div class="hero-btn-1" onclick="createRandomPlanet()">
+                  <a href="">Create</a>
                 </div>
                 <div class="hero-btn">
-                  <a href="#">Fusion</a>
+                  <a href="/fusion.html">Fusion</a>
                 </div>
 		</div>
                 </div>`);  
@@ -683,7 +688,7 @@ function displayNewPlanet() {
     function createRandomPlanet() {
 
 
-      $("#txStatus").text("Creating new planet on the blockchain. This may take a while...");
+      //$("#txStatus").text("Creating new planet on the blockchain. This may take a while...");
 
       return cryptoPlanet.methods.createRandomPlanet("Test",1,1,1,userAccount)
         .send({ from: userAccount })
