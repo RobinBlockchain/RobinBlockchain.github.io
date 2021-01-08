@@ -17,7 +17,23 @@
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
     
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">
+function getParams() {
+	var idx = document.URL.indexOf('?');
+	var params = new Array();
+	if (idx != -1) {
+		var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+		for (var i=0; i<pairs.length; i++) {
+		nameVal = pairs[i].split('=');
+		params[nameVal[0]] = nameVal[1];
+   		}
+		}
+	return params;
+}
+params = getParams();
+	  
+	  
+	  </script>
   </head>
 <header>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,7 +100,7 @@
 							
    
     <div class="first nonhero">
-               <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/3/image" alt="">
+               <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/"+${params["var1"]}+"/image" alt="">
                
                 <div class="hero-description-bk"></div>
                 <div class="top-section">
@@ -268,7 +284,10 @@
         </footer>
     </div>
 
-    <script src="dist/js/main.min.js"></script>
+    <script src="dist/js/main.min.js"></script> 
+
+	    
+
 </body>
 </html>
 
