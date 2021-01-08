@@ -99,8 +99,8 @@ params = getParams();
 						</div>
 							
    
-    <div class="first nonhero">
-               <img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/"+${params["var1"]}+"/image" alt="">
+    <div class="first nonhero" id="imageToAdd">
+               <!<img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/3/image" id="imageurl" alt="">>
                
                 <div class="hero-description-bk"></div>
                 <div class="top-section">
@@ -286,7 +286,21 @@ params = getParams();
 
     <script src="dist/js/main.min.js"></script> 
 
-	    
+<script>
+
+//var para1=document.getElementById('imageurl');
+//var para2=document.getElementById('element2');
+
+var img = document.createElement('img'); 
+ img.src =  
+"https://cryptoplanet.pythonanywhere.com/planets/${unescape(params["var1"])}/image"; 
+ document.getElementById('imageToAdd').appendChild(img); 
+            //down.innerHTML = "Image Element Added.";  	
+	
+//para1.value = unescape(params["var1"]);
+//para2.value = unescape(params["var2"]);
+
+</script> 	    
 
 </body>
 </html>
