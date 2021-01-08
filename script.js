@@ -696,29 +696,8 @@ function displayNewPlanet() {
           $("#txStatus").text("Successfully created " + "!");
 
 
-          getPlanetsByOwner(userAccount).then(displayPlanets);
-	  console.log(getPlanetsByOwner(userAccount));
-	  console.log(getPlanetsByOwner(userAccount)[1]);
-        })
-        .on("error", function (error) {
-
-          $("#txStatus").text(error);
-        });
-    }
-
-
-    function TransferPlanet() {
-
-      var addressto = document.getElementById("addressto").value;
-   	  var planetId = document.getElementById("planetId").value;
-
-      return cryptoPlanet.methods.transfer(addressto,planetId)
-        .send({ from: userAccount })
-        .on("receipt", function (receipt) {
-          $("#txStatus").text("Successfully transferred " + "!");
-
           getPlanetsByOwner(userAccount)
-		  .then((valeur) => {
+	  .then((valeur) => {
   		  console.log(valeur[valeur.length-1]);
 		  // Create a planet design 
 		var url = "https://cryptoplanet.pythonanywhere.com/create";
@@ -749,7 +728,26 @@ function displayNewPlanet() {
 xhr.send(data);
   		  })
 	      
-	      then(displayPlanets);
+	      .then(displayPlanets);
+        })
+        .on("error", function (error) {
+
+          $("#txStatus").text(error);
+        });
+    }
+
+
+    function TransferPlanet() {
+
+      var addressto = document.getElementById("addressto").value;
+   	  var planetId = document.getElementById("planetId").value;
+
+      return cryptoPlanet.methods.transfer(addressto,planetId)
+        .send({ from: userAccount })
+        .on("receipt", function (receipt) {
+          $("#txStatus").text("Successfully transferred " + "!");
+
+          getPlanetsByOwner(userAccount).then(displayPlanets);
 
 	     
         })
