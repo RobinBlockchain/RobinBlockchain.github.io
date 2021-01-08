@@ -17,21 +17,7 @@
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
     
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">
-function getParams() {
-	var idx = document.URL.indexOf('?');
-	var params = new Array();
-	if (idx != -1) {
-		var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
-		for (var i=0; i<pairs.length; i++) {
-		nameVal = pairs[i].split('=');
-		params[nameVal[0]] = nameVal[1];
-   		}
-		}
-	return params;
-}
-params = getParams();
-	  
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">	  
 	  
 	  </script>
   </head>
@@ -289,15 +275,15 @@ params = getParams();
 
 <script>
 
-//var para1=document.getElementById('imageurl');
-//var para2=document.getElementById('element2');
+const urlParams = new URLSearchParams(queryString);
+const planet = urlParams.get('var1')
+console.log(planet);
+// shirt
 
-//var img = document.createElement('img'); 
- $("#imagePlanet").append(`
-	<img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/3/image" alt="">`);
 	
-//para1.value = unescape(params["var1"]);
-//para2.value = unescape(params["var2"]);
+ $("#imagePlanet").append(`
+	<img class="hero-profile-img" src="https://cryptoplanet.pythonanywhere.com/planets/${parseInt(planet)}/image" alt="">`);
+
 
 </script> 	    
 
