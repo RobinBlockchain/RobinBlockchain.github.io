@@ -629,7 +629,7 @@ ethereum.autoRefreshOnNetworkChange = false;
                   <a href="#">Focus Boost</a>
                 </div>
                 <div class="hero-btn">
-                  <a href="#">Details</a>
+                  <a href="/details.html?var1=${parseInt(ids[d])}@&var2=test@">Details</a>
                 </div>
 		</div>
                 </div>`);
