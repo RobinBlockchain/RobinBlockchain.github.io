@@ -626,10 +626,10 @@ ethereum.autoRefreshOnNetworkChange = false;
 		<p>Created : ${planet.creationTime}</p>
                 </div>  
                 <div class="hero-btn-1">
-                  <a href="#">Focus Boost</a>
+                  <a href="/focus.html?planet=${parseInt(ids[d])}>Focus Boost</a>
                 </div>
                 <div class="hero-btn">
-                  <a href="/details.html?var1=${parseInt(ids[d])}&var2=none">Details</a>
+                  <a href="/details.html?planet=${parseInt(ids[d])}">Details</a>
                 </div>
 		</div>
                 </div>`);
