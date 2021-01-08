@@ -677,7 +677,7 @@ function displayNewPlanet() {
 		</div>
                 
                 <div class="hero-btn-1" onclick="createRandomPlanet()">
-                  <a href="">Create</a>
+                  <a href="#">Create</a>
                 </div>
                 <div class="hero-btn">
                   <a href="/fusion.html">Fusion</a>
