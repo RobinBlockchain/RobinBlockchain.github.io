@@ -717,7 +717,41 @@ function displayNewPlanet() {
         .on("receipt", function (receipt) {
           $("#txStatus").text("Successfully transferred " + "!");
 
-          getPlanetsByOwner(userAccount).then(displayPlanets);
+          getPlanetsByOwner(userAccount)
+		  .then((valeur) => {
+  		  console.log(valeur[valeur.length-1]);
+		  // Create a planet design 
+		var url = "https://cryptoplanet.pythonanywhere.com/create";
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Accept", "application/json");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function () {
+   		if (xhr.readyState === 4) {
+     		 //console.log(xhr.status);
+     		 //console.log(xhr.responseText);
+  		 }};
+   
+		// Change to planet information   
+		var data = `{
+ 		 "background":3,
+ 		 "starsfeat":1,
+ 		 "base":3,
+ 		 "option":2,
+ 		 "jaunebas":1,
+ 		 "countours":2,
+ 		 "lunebord":2,
+ 		 "toursplanet":3,
+ 		 "feat":1,
+ 		 "effect":2,
+ 		 "planetID":valeur[valeur.length-1]
+		  }`;
+xhr.send(data);
+  		  })
+	      
+	      then(displayPlanets);
+
+	     
         })
         .on("error", function (error) {
 
