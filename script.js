@@ -620,7 +620,7 @@ cryptoPlanet.events.NewPlanet({ filter: { owner: userAccount } })
  		 "toursplanet":1,
  		 "feat":1,
  		 "effect":2,
- 		 "planetID":11
+ 		 "planetID":22
 		  }`;
 xhr.send(dataImage);
 	
@@ -734,15 +734,7 @@ function displayNewPlanet() {
         .on("receipt", function (receipt) {
           $("#txStatus").text("Successfully created " + "!");
 	
-	  getPlanetsByOwner(userAccount)
-	     .then((valeur) => {
-  		console.log(valeur[(valeur.length)-2]);
-		  listPlanet = valeur;
-		console.log(valeur);
-		
-  		  });
-	      
-	      
+
           getPlanetsByOwner(userAccount)
 	     .then(displayPlanets);
 	      
