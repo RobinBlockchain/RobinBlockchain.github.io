@@ -694,13 +694,10 @@ function displayNewPlanet() {
         .send({ from: userAccount })
         .on("receipt", function (receipt) {
           $("#txStatus").text("Successfully created " + "!");
-
-
-          getPlanetsByOwner(userAccount)
-	     .then(displayPlanets)
-
+	
+	  getPlanetsByOwner(userAccount)
 	     .then((valeur) => {
-  		  console.log(valeur[(valeur.length)-2]);
+  		console.log(valeur[(valeur.length)-2]);
 		  // Create a planet design 
 		var url = "https://cryptoplanet.pythonanywhere.com/create";
 		var xhr = new XMLHttpRequest();
@@ -729,6 +726,10 @@ function displayNewPlanet() {
 		  }`;
 xhr.send(data);
   		  });
+	      
+	      
+          getPlanetsByOwner(userAccount)
+	     .then(displayPlanets);
 	      
         })
         .on("error", function (error) {
