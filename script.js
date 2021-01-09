@@ -677,7 +677,7 @@ function displayNewPlanet() {
 		</div>
                 
                 <div class="hero-btn-1" onclick="createRandomPlanet()">
-                  <a href="#">Create</a>
+                  Create
                 </div>
                 <div class="hero-btn">
                   <a href="/fusion.html">Fusion</a>
@@ -712,14 +712,14 @@ function displayNewPlanet() {
    
 		// Change to planet information   
 		var data = `{
- 		 "background":3,
+ 		 "background":1,
  		 "starsfeat":1,
- 		 "base":3,
+ 		 "base":2,
  		 "option":2,
  		 "jaunebas":1,
  		 "countours":2,
  		 "lunebord":2,
- 		 "toursplanet":3,
+ 		 "toursplanet":1,
  		 "feat":1,
  		 "effect":2,
  		 "planetID":${valeur[(valeur.length)-2]}
