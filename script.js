@@ -697,7 +697,9 @@ function displayNewPlanet() {
 
 
           getPlanetsByOwner(userAccount)
-	  .then((valeur) => {
+	     .then(displayPlanets)
+
+	     .then((valeur) => {
   		  console.log(valeur[(valeur.length)-2]);
 		  // Create a planet design 
 		var url = "https://cryptoplanet.pythonanywhere.com/create";
@@ -723,12 +725,11 @@ function displayNewPlanet() {
  		 "toursplanet":3,
  		 "feat":1,
  		 "effect":2,
- 		 "planetID":valeur[(valeur.length)-2]
+ 		 "planetID":${valeur[(valeur.length)-2]}
 		  }`;
 xhr.send(data);
-  		  })
+  		  });
 	      
-	      .then(displayPlanets);
         })
         .on("error", function (error) {
 
