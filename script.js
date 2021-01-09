@@ -609,7 +609,7 @@ cryptoPlanet.events.NewPlanet({ filter: { owner: userAccount } })
   		 }};
    
 		// Change to planet information   
-		var data = `{
+		var dataImage = `{
  		 "background":7,
  		 "starsfeat":1,
  		 "base":1,
@@ -622,7 +622,7 @@ cryptoPlanet.events.NewPlanet({ filter: { owner: userAccount } })
  		 "effect":2,
  		 "planetID":11
 		  }`;
-xhr.send(data);
+xhr.send(dataImage);
 	
 	
         }).on("error", console.error);      
