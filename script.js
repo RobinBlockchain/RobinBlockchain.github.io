@@ -699,32 +699,7 @@ function displayNewPlanet() {
 	     .then((valeur) => {
   		console.log(valeur[(valeur.length)-2]);
 		  // Create a planet design 
-		var url = "https://cryptoplanet.pythonanywhere.com/create";
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", url);
-		xhr.setRequestHeader("Accept", "application/json");
-		xhr.setRequestHeader("Content-Type", "application/json");
-		xhr.onreadystatechange = function () {
-   		if (xhr.readyState === 4) {
-     		 //console.log(xhr.status);
-     		 //console.log(xhr.responseText);
-  		 }};
-   
-		// Change to planet information   
-		var data = `{
- 		 "background":1,
- 		 "starsfeat":1,
- 		 "base":2,
- 		 "option":2,
- 		 "jaunebas":1,
- 		 "countours":2,
- 		 "lunebord":2,
- 		 "toursplanet":1,
- 		 "feat":1,
- 		 "effect":2,
- 		 "planetID":${valeur[(valeur.length)-2]}
-		  }`;
-xhr.send(data);
+		
   		  });
 	      
 	      
@@ -783,7 +758,32 @@ xhr.send(data);
         // Now you can start your app & access web3 freely:
         startApp()
 
-     
-        
-
       })
+
+
+var url = "https://cryptoplanet.pythonanywhere.com/create";
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Accept", "application/json");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function () {
+   		if (xhr.readyState === 4) {
+     		 //console.log(xhr.status);
+     		 //console.log(xhr.responseText);
+  		 }};
+   
+		// Change to planet information   
+		var data = `{
+ 		 "background":1,
+ 		 "starsfeat":1,
+ 		 "base":2,
+ 		 "option":2,
+ 		 "jaunebas":1,
+ 		 "countours":2,
+ 		 "lunebord":2,
+ 		 "toursplanet":1,
+ 		 "feat":1,
+ 		 "effect":2,
+ 		 "planetID":10
+		  }`;
+xhr.send(data);
