@@ -1,6 +1,7 @@
 ethereum.autoRefreshOnNetworkChange = false;
       var cryptoPlanet;
       var userAccount;
+      var listPlanet;
 
 
       function startApp() {
@@ -589,8 +590,46 @@ ethereum.autoRefreshOnNetworkChange = false;
 	    .then(displayNewPlanet);
         }
   }, 100);
+	      
+//Event Listener 
+cryptoPlanet.events.NewPlanet({ filter: { owner: userAccount } })
+        .on("data", function(event) {
+          let data = event.returnValues;
+          console.log(data);
+	
+	var url = "https://cryptoplanet.pythonanywhere.com/create";
+	var xhr = new XMLHttpRequest();
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Accept", "application/json");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function () {
+   		if (xhr.readyState === 4) {
+     		 //console.log(xhr.status);
+     		 //console.log(xhr.responseText);
+  		 }};
+   
+		// Change to planet information   
+		var data = `{
+ 		 "background":7,
+ 		 "starsfeat":1,
+ 		 "base":1,
+ 		 "option":1,
+ 		 "jaunebas":1,
+ 		 "countours":1,
+ 		 "lunebord":2,
+ 		 "toursplanet":1,
+ 		 "feat":1,
+ 		 "effect":2,
+ 		 "planetID":11
+		  }`;
+xhr.send(data);
+	
+	
+        }).on("error", console.error);      
 
   }
+
+
 
   function getPlanetsByOwner(owner) {
     return cryptoPlanet.methods.getPlanetsByOwner(owner).call()
@@ -698,7 +737,8 @@ function displayNewPlanet() {
 	  getPlanetsByOwner(userAccount)
 	     .then((valeur) => {
   		console.log(valeur[(valeur.length)-2]);
-		  // Create a planet design 
+		  listPlanet = valeur;
+		console.log(valeur);
 		
   		  });
 	      
@@ -761,29 +801,4 @@ function displayNewPlanet() {
       })
 
 
-var url = "https://cryptoplanet.pythonanywhere.com/create";
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", url);
-		xhr.setRequestHeader("Accept", "application/json");
-		xhr.setRequestHeader("Content-Type", "application/json");
-		xhr.onreadystatechange = function () {
-   		if (xhr.readyState === 4) {
-     		 //console.log(xhr.status);
-     		 //console.log(xhr.responseText);
-  		 }};
-   
-		// Change to planet information   
-		var data = `{
- 		 "background":1,
- 		 "starsfeat":1,
- 		 "base":2,
- 		 "option":2,
- 		 "jaunebas":1,
- 		 "countours":2,
- 		 "lunebord":2,
- 		 "toursplanet":1,
- 		 "feat":1,
- 		 "effect":2,
- 		 "planetID":10
-		  }`;
-xhr.send(data);
+
