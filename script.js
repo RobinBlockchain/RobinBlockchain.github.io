@@ -1,7 +1,8 @@
 ethereum.autoRefreshOnNetworkChange = false;
       var cryptoPlanet;
       var userAccount;
-      var listPlanet;
+      var newPlanet = 0;
+      var dnaNewPlanet;
 
 
       function startApp() {
@@ -596,34 +597,10 @@ cryptoPlanet.events.NewPlanet({ filter: { owner: userAccount } })
         .on("data", function(event) {
           let data = event.returnValues;
           console.log(data);
-	
-	var url = "https://cryptoplanet.pythonanywhere.com/create";
-	var xhr = new XMLHttpRequest();
-		xhr.open("POST", url);
-		xhr.setRequestHeader("Accept", "application/json");
-		xhr.setRequestHeader("Content-Type", "application/json");
-		xhr.onreadystatechange = function () {
-   		if (xhr.readyState === 4) {
-     		 //console.log(xhr.status);
-     		 //console.log(xhr.responseText);
-  		 }};
-   
-		// Change to planet information   
-		var dataImage = `{
- 		 "background":7,
- 		 "starsfeat":1,
- 		 "base":1,
- 		 "option":1,
- 		 "jaunebas":1,
- 		 "countours":1,
- 		 "lunebord":2,
- 		 "toursplanet":1,
- 		 "feat":1,
- 		 "effect":2,
- 		 "planetID":22
-		  }`;
-xhr.send(dataImage);
-	
+	  newPlanet = data["planetId"];
+	  dnaNewPlanet = data["dna"];
+	  console.log(newPlanet);
+   	  console.log(dnaNewPlanet);
 	
         }).on("error", console.error);      
 
@@ -792,5 +769,42 @@ function displayNewPlanet() {
 
       })
 
+
+let newPlCheck = 0;
+var createInterval = setInterval(function () {
+   
+        if (newPlCheck != newPlanet) {
+          newPlCheck = newPlanet;
+	  console.log(newPlCheck);
+  var url = "https://cryptoplanet.pythonanywhere.com/create";
+	var xhr = new XMLHttpRequest();
+		xhr.open("POST", url);
+		xhr.setRequestHeader("Accept", "application/json");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.onreadystatechange = function () {
+   		if (xhr.readyState === 4) {
+     		 //console.log(xhr.status);
+     		 //console.log(xhr.responseText);
+  		 }};
+   
+		// Change to planet information   
+		var dataImage = `{
+ 		 "background":2,
+ 		 "starsfeat":2,
+ 		 "base":2,
+ 		 "option":2,
+ 		 "jaunebas":2,
+ 		 "countours":1,
+ 		 "lunebord":2,
+ 		 "toursplanet":2,
+ 		 "feat":1,
+ 		 "effect":2,
+ 		 "planetID":${newPlanet}
+		  }`;
+xhr.send(dataImage);
+                    
+          
+        }
+  }, 100);
 
 
